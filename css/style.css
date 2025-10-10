@@ -1,9 +1,21 @@
+:root {
+    --primary-header-color: #045C15;
+    --secondary-header-color: #0F7422;
+    --primary-navigator-color: #00420C;
+    --text-color: #FFFFFF;
+}
+
 .title {
     height: 20vh;
 }
 
+.home-text {
+    color: var(--text-color);
+}
+
 .movie-carousel {
     background-color: black;
+    position: relative;
 }
 
 .carousel {
@@ -15,9 +27,34 @@
     height: 90vh;
 }
 
+.carousel-item {
+    text-align: center;
+}
+
+.carousel-caption-static {
+    position: relative;
+    margin-top: 1rem;
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
 .carousel-item img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: center;
 }
+
+footer {
+    background-color: var(--primary-navigator-color);
+    height: 5vh;
+}
+
+.footer-text {
+    height: 100%;
+    width: 100%;
+}
+
+    .footer-text p {
+        margin: 0;
+    }
