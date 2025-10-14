@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>IFES Movie Database</title>
+</head>
+<body>
+    <header>
+        <div class="title d-flex justify-content-center align-items-center">
+            <h1 class="text-center fs-1">IFES Movie Database</h1>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Página Inicial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Lista de Filmes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Busca</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Filmes mais bem avaliados -->
+    <section class="content">
+        <div class="title-best-rated">
+            <h2>TOP 10 FILMES POR AVALIAÇÃO DOS USUÁRIOS</h2>
+        </div>
+        <div class="container-best-rated container text-center">
+            <div class="row row-best-rated">
+                <div class="col">
+                    <p>POSIÇÃO</p`>
+                </div>
+                <div class="col">
+                    <p>TÍTULO</p>
+                </div>
+                <div class="col">
+                    <p>ANO</p>
+                </div>
+                <div class="col">
+                    <p>CATEGORIA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="d-flex justify-content-center align-items-center footer-text">
+            <p class="text-center home-text">Trabalho realizado por Felipe Abdalla Tiradentes de Souza para a disciplina de Projeto de Sistemas para Internet em Outubro/2025</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
