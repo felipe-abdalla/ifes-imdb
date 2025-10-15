@@ -2,7 +2,7 @@
     <h2>TOP 10 FILMES POR AVALIAÇÃO DOS USUÁRIOS</h2>
 </div>
 <div class="container-best-rated container text-center">
-    <div class="row row-best-rated">
+    <div class="row">
         <div class="col">
             <p>POSIÇÃO</p`>
         </div>
@@ -15,5 +15,9 @@
         <div class="col">
             <p>CATEGORIA</p>
         </div>
+        <div class="col">
+            <p>NOTA</p>
+        </div>
     </div>
+    <hr>
 </div>
