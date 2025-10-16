@@ -134,6 +134,7 @@ def scrape_top_movies(limit=30):
         title = link_tag.get_text(strip=True)
         movie_url = "https://www.imdb.com" + href.split("?")[0]
         movies.append({"title": title, "url": movie_url})
+        print("Filmes:" + movies)
     return movies
 
 
