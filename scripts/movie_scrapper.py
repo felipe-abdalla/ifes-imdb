@@ -19,8 +19,8 @@ HEADERS = {
 DB_CONFIG = {
     "host": "localhost",
     "user": "root",
-    "password": "yourpassword",
-    "database": "imdb_scraper"
+    "password": "root",
+    "database": "imdb"
 }
 
 # ---------- DATABASE UTILS ---------- #

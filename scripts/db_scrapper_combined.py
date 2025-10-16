@@ -117,21 +117,25 @@ def get_or_create(cursor, table, column, value):
 # ========= SCRAPER FUNCTIONS =========
 
 def scrape_top_movies(limit=30):
-    url = "https://www.imdb.com/pt/chart/top/?ref_=hm_nv_menu"
+    url = "https://www.imdb.com/chart/top/"
     resp = requests.get(url)
     soup = BeautifulSoup(resp.text, "html.parser")
 
     movies = []
-    rows = soup.select("li.ipc-metadata-list-summary-item")[:limit]
-    for row in rows:
-        link_tag = row.select_one("a.ipc-title-link-wrapper")
+    rows = soup.select("div.ipc-metadata-list-summary-item__tc")
+    if not rows:  # fallback to new format
+        rows = soup.select("li.ipc-metadata-list-summary-item")
+
+    for row in rows[:limit]:
+        link_tag = row.select_one("a[href*='/title/']")
         if not link_tag:
             continue
         href = link_tag.get("href")
         title = link_tag.get_text(strip=True)
-        movie_url = "https://www.imdb.com" + href
+        movie_url = "https://www.imdb.com" + href.split("?")[0]
         movies.append({"title": title, "url": movie_url})
     return movies
+
 
 def scrape_movie_details(url):
     resp = requests.get(url)
