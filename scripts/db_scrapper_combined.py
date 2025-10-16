@@ -117,24 +117,28 @@ def get_or_create(cursor, table, column, value):
 # ========= SCRAPER FUNCTIONS =========
 
 def scrape_top_movies(limit=30):
-    url = "https://www.imdb.com/chart/top/"
+    url = "https://www.imdb.com/pt/chart/top/?ref_=hm_nv_menu"
     resp = requests.get(url)
     soup = BeautifulSoup(resp.text, "html.parser")
+    print(soup.prettify()[:2000])
 
     movies = []
-    rows = soup.select("div.ipc-metadata-list-summary-item__tc")
-    if not rows:  # fallback to new format
-        rows = soup.select("li.ipc-metadata-list-summary-item")
+    # Each movie entry
+    items = soup.select("li.ipc-metadata-list-summary-item")
 
-    for row in rows[:limit]:
-        link_tag = row.select_one("a[href*='/title/']")
+    for item in items[:limit]:
+        link_tag = item.select_one("a.ipc-title-link-wrapper")
         if not link_tag:
             continue
-        href = link_tag.get("href")
         title = link_tag.get_text(strip=True)
+        href = link_tag["href"]
+        # Build absolute URL
         movie_url = "https://www.imdb.com" + href.split("?")[0]
-        movies.append({"title": title, "url": movie_url})
-        print("Filmes:" + movies)
+        movies.append({
+            "title": title,
+            "url": movie_url
+        })
+
     return movies
 
 
@@ -189,6 +193,8 @@ def main():
     cursor = conn.cursor()
 
     movies = scrape_top_movies(limit=30)
+    print(f"DEBUG: Found {len(movies)} movies.")
+    print(movies[:3])  # print first 3 to confirm structure
 
     for m in movies:
         print(f"🎬 Processing: {m['title']}")
