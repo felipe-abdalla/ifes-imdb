@@ -47,9 +47,28 @@ body {
     align-items: center;
 }
 
-.title-best-rated,
-.title-list {
+.title-best-rated{
     height: 10vh;
+}
+
+.title-search {
+    height: 72px;            /* altura fixa desejada */
+    min-height: 56px;
+    display: flex;
+    justify-content: flex-start;  /* esquerda horizontal */
+    align-items: flex-start;      /* topo vertical */
+    padding-top: 8px;             /* pequeno espaçamento interno */
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.search-card-wrapper {
+    margin-top: 8px;
+}
+
+.search-card-wrapper .card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.06);
+    border-radius: 6px;
 }
 
 .container-best-rated {
