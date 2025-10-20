@@ -49,6 +49,12 @@ def create_tables(cursor):
         )
     """)
     cursor.execute("""
+        CREATE TABLE IF NOT EXISTS Sexo (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            descricao VARCHAR(50) UNIQUE
+        )
+    """)
+    cursor.execute("""
         CREATE TABLE IF NOT EXISTS Filme (
             id INT AUTO_INCREMENT PRIMARY KEY,
             titulo VARCHAR(255) UNIQUE,
@@ -70,7 +76,9 @@ def create_tables(cursor):
             sobrenome VARCHAR(100),
             data_nascimento VARCHAR(50),
             nacionalidade VARCHAR(100),
-            UNIQUE(nome, sobrenome)
+            sexo_id INT DEFAULT NULL,
+            UNIQUE(nome, sobrenome),
+            FOREIGN KEY (sexo_id) REFERENCES Sexo(id)
         )
     """)
     cursor.execute("""
@@ -82,6 +90,9 @@ def create_tables(cursor):
             FOREIGN KEY (Filme_id) REFERENCES Filme(id)
         )
     """)
+
+    # popular valores padrão da tabela Sexo
+    cursor.execute("INSERT IGNORE INTO Sexo (descricao) VALUES (%s), (%s)", ("masculino", "feminino"))
 
 
 def get_or_create(cursor, table, column, value):
